@@ -4,7 +4,8 @@ import { LuPanelLeftClose } from "react-icons/lu";
 import { FiUser, FiMessageSquare } from "react-icons/fi";
 import { SlOptions } from "react-icons/sl";
 import { ContextApp } from "../utils/Context";
-function LeftNav() {
+
+const LeftNav = () => {
   const { setShowSlide, showSlide, handleQuery } = useContext(ContextApp);
   return (
     // top section

@@ -4,7 +4,8 @@ import { FiUser, FiMessageSquare } from "react-icons/fi";
 import { SlOptions } from "react-icons/sl";
 import { MdClose } from "react-icons/md";
 import { ContextApp } from "../utils/Context";
-function Mobile() {
+
+const Mobile = () => {
   const { Mobile, setMobile, handleQuery } = useContext(ContextApp);
   return (
     <div className="absolute left-0 top-0 w-full z-50  bg-black/40 flex justify-between items-start">

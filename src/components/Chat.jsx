@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ContextApp } from "../utils/Context";
 
-function Chat() {
+const Chat = () => {
   const { message, msgEnd } = useContext(ContextApp);
   return (
     <div className=" w-full h-[85%] flex items-center justify-center overflow-hidden overflow-y-auto px-2 py-1 scroll">

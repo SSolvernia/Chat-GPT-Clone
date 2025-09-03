@@ -3,7 +3,7 @@ import LeftNav from "../components/LeftNav";
 import ChatContainer from "../components/ChatContainer";
 import Mobile from "../components/Mobile";
 
-function Home() {
+const Home = () => {
   return (
     <div className="flex w-screen relative">
       <LeftNav />
