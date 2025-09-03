@@ -4,7 +4,7 @@
 
 This project is a fork from https://github.com/riteshk-007/Chat-GPT-Clone, all inital credit goes for him.
 
-This project doesn't have any commercial intentions, just for fur or personal usage. 
+This project doesn't have any commercial intentions. Its use is intended for fun and/or academic matters. 
 
 ## Getting Started
 
