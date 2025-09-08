@@ -16,9 +16,9 @@ const Chat = () => {
             }
           >
             <img
-              src={msg.isBot ? "/icon.png" : "/user.jpeg"}
+              src={msg.isBot ? "/Dorothy_Haze.webp" : "/Jill.webp"}
               alt="user"
-              className="w-10 h-10 rounded object-cover"
+              className="w-20 h-20 rounded object-cover"
             />
             <p className="text-white text-[15px]">{msg?.text}</p>
           </span>

@@ -1,16 +1,16 @@
 import OpenAI from "openai";
-
-// Cliente OpenAI (router Hugging Face) compatible con navegador
+import personas from '../personas';
+// OpenAi client for huggingface
 const client = new OpenAI({
   baseURL: "https://router.huggingface.co/v1",
   apiKey: process.env.REACT_APP_HF_TOKEN || process.env.HF_TOKEN,
   dangerouslyAllowBrowser: true,
 });
 
-export const sendMsgToAI = async (msg) => {
+export const sendMsgToAI = async (msg, personaKey = 'dorothy') => {
   if (!client.apiKey) {
     console.warn(
-      "REACT_APP_HF_TOKEN (o HF_TOKEN) no está definido en .env.local"
+      "REACT_APP_HF_TOKEN not configured"
     );
     return "Falta configurar el token de Hugging Face.";
   }
@@ -19,10 +19,11 @@ export const sendMsgToAI = async (msg) => {
     const chatCompletion = await client.chat.completions.create({
       model: "meta-llama/Llama-3.1-8B-Instruct:cerebras",
       messages: [
+        { role: "system", content: personas?.[personaKey]?.content || "" },
         { role: "user", content: msg },
       ],
-      // Puedes ajustar hiperparámetros si el router lo soporta
-      // extra_body: { temperature: 0.2, top_p: 0.95, max_tokens: 512 },
+      temperature: 0.5,
+      max_tokens: 400,
     });
 
     const message = chatCompletion?.choices?.[0]?.message;

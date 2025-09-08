@@ -4,6 +4,7 @@ import { LuPanelLeftOpen } from "react-icons/lu";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { RiSendPlane2Fill } from "react-icons/ri";
 import Chat from "./Chat";
+import personas from "../personas";
 
 const ChatContainer = () => {
   const {
@@ -15,6 +16,8 @@ const ChatContainer = () => {
     setChatValue,
     handleSend,
     handleKeyPress,
+    personaKey,
+    setPersonaKey,
   } = useContext(ContextApp);
 
   return (
@@ -39,6 +42,22 @@ const ChatContainer = () => {
       >
         <HiOutlineMenuAlt2 fontSize={20} />
       </span>
+      {/* persona selector */}
+      <div className="w-full flex justify-center mb-2">
+        <select
+          value={personaKey}
+          onChange={(e) => setPersonaKey(e.target.value)}
+          className="bg-gray-800 text-white text-sm px-3 py-2 rounded border border-gray-600 focus:outline-none"
+          title="Selecciona persona"
+        >
+          {Object.keys(personas).map((key) => (
+            <option key={key} value={key} className="text-sm">
+              {key}
+            </option>
+          ))}
+        </select>
+      </div>
+
       {/* chat section */}
       <Chat />
       {/* chat input section */}

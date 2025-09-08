@@ -37,22 +37,22 @@ const LeftNav = () => {
         {/* msg  */}
         <span
           className="rounded w-full py-3 px-2 text-xs my-2 flex gap-1 items-center justify-between cursor-pointer hover:bg-gray-800 transition-all duration-300 overflow-hidden truncate whitespace-nowrap"
-          value={"What is Programming?"}
+          value={"Como te llamas?"}
           onClick={handleQuery}
         >
           <span className="flex gap-2 items-center justify-center text-base">
             <FiMessageSquare />
-            <span className="text-sm">What is Programming?</span>
+            <span className="text-sm">Como te llamas?</span>
           </span>
         </span>
         <span
           className="rounded w-full py-3 px-2 text-xs my-2 flex gap-2 items-center justify-between cursor-pointer hover:bg-gray-800 transition-all duration-300 overflow-hidden truncate whitespace-nowrap "
-          value={"How to use an API?"}
+          value={"Como me llamo?"}
           onClick={handleQuery}
         >
           <span className="flex gap-2 items-center justify-center text-base">
             <FiMessageSquare />
-            <span className="text-sm">How to use an API?</span>
+            <span className="text-sm">Como me llamo?</span>
           </span>
         </span>
       </div>
@@ -70,11 +70,11 @@ const LeftNav = () => {
         <span className="rounded w-full py-2 px-2 text-xs flex gap-1 items-center justify-between cursor-pointer hover:bg-gray-800 transition-all duration-300">
           <span className="flex gap-2 items-center justify-center text-sm font-bold">
             <img
-              src="/user.jpeg"
+              src="/Jill.webp"
               alt="user"
-              className="w-8 h-8 object-cover rounded-sm"
+              className="w-10 h-10 object-cover rounded-sm"
             />
-            Ritesh
+            Jill
           </span>
           <span className="rounded-md  px-1.5 py-0.5 text-xs font-medium uppercase text-gray-500">
             <SlOptions />
