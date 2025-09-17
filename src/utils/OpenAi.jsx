@@ -33,9 +33,25 @@ export const sendMsgToAI = async (msg, personaKey = 'dorothy') => {
         : Array.isArray(message?.content)
         ? message.content.map((c) => (typeof c === "string" ? c : c?.text || "")).join("")
         : "";
-    return content || "";
+    // Try to parse JSON like: { "text": "...", "emotion": "..." }
+    if (content) {
+      try {
+        const start = content.indexOf('{');
+        const end = content.lastIndexOf('}');
+        const jsonSlice = start !== -1 && end !== -1 ? content.slice(start, end + 1) : content;
+        const parsed = JSON.parse(jsonSlice);
+        return {
+          text: typeof parsed.text === 'string' ? parsed.text : String(parsed.text ?? ''),
+          emotion: typeof parsed.emotion === 'string' ? parsed.emotion : undefined,
+        };
+      } catch (_) {
+        // Fallback: return raw text
+        return { text: content, emotion: undefined };
+      }
+    }
+    return { text: "", emotion: undefined };
   } catch (error) {
     console.error(error);
-    return error?.message || "Ocurrió un error al generar la respuesta.";
+    return { text: error?.message || "Ocurrió un error al generar la respuesta.", emotion: undefined };
   }
 };
