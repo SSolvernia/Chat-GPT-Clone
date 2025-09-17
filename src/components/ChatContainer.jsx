@@ -5,6 +5,7 @@ import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { RiSendPlane2Fill } from "react-icons/ri";
 import Chat from "./Chat";
 import personas from "../personas";
+import { Box, InputLabel, Select, FormControl, MenuItem } from '@mui/material';
 
 const ChatContainer = () => {
   const {
@@ -43,20 +44,21 @@ const ChatContainer = () => {
         <HiOutlineMenuAlt2 fontSize={20} />
       </span>
       {/* persona selector */}
-      <div className="w-full flex justify-center mb-2">
-        <select
-          value={personaKey}
-          onChange={(e) => setPersonaKey(e.target.value)}
-          className="bg-gray-800 text-white text-sm px-3 py-2 rounded border border-gray-600 focus:outline-none"
-          title="Selecciona persona"
-        >
+      <Box className="max-w-[120px] w-full self-center">
+        <FormControl fullWidth>
+          <InputLabel id="persona" >Persona</InputLabel>
+          <Select
+            value={personaKey}
+            onChange={(e) => setPersonaKey(e.target.value)}
+          >
           {Object.keys(personas).map((key) => (
-            <option key={key} value={key} className="text-sm">
+            <MenuItem key={key} value={key} className="text-sm">
               {key}
-            </option>
+            </MenuItem>
           ))}
-        </select>
-      </div>
+        </Select>
+        </FormControl>
+      </Box>
 
       {/* chat section */}
       <Chat />
@@ -81,10 +83,6 @@ const ChatContainer = () => {
             onClick={handleSend}
           />
         </span>
-        <p className="lg:text-xs text-gray-400 text-center text-[10px]">
-          Free Research Preview. ChatGPT may produce inaccurate information
-          about people, places, or facts. ChatGPT August 3 Version
-        </p>
       </div>
     </div>
   );
